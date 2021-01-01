@@ -46,7 +46,7 @@ firebase.auth().onAuthStateChanged((user)=>{
                
                 (user.uid==change.doc.data().UserID) ?
                 //printing own msgs 
-                (li.classList.add('mine-messages','wow','fadeInUp'),
+                (li.classList.add('mine-messages'),
                 liTime=document.createTextNode(formattedTime),
                 litxt=document.createTextNode(change.doc.data().userMsg),
                 b.classList.add('print-time'),
@@ -55,7 +55,7 @@ firebase.auth().onAuthStateChanged((user)=>{
                 li.appendChild(b),
                 ul.appendChild(li)) : 
                
-                (li.classList.add('users-messages','wow','fadeInUp'),
+                (li.classList.add('users-messages'),
                  // getting users msgs
                 litxt=document.createTextNode(change.doc.data().userMsg),
                 // printing user name 
