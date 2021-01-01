@@ -1,3 +1,6 @@
+var loadingscreen=()=>{
+    document.getElementById('loading-screen').style.display="none";
+}
 // Signing user
 var login=(event)=>{
         event.preventDefault()
