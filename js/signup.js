@@ -1,4 +1,7 @@
 
+var loadingscreen=()=>{
+    document.getElementById('loading-screen').style.display="none";
+}
 var registerUser=(event)=>{
     event.preventDefault()
     var userFullName=document.getElementById("userFullName").value;
