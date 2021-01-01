@@ -8,7 +8,27 @@
     box-sizing: border-box;
 }
 #mine-loader{display: none;}
-
+#loading-screen {
+   
+    height: 100%;
+    width: 100%;
+    background-color:#DADED4;
+    position: fixed !important;
+    z-index:10000;
+    
+}
+#loading-screen img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#loading-screen-ldbar{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .lds-ellipsis {
     display: inline-block;
     position: relative;
