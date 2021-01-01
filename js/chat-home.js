@@ -1,3 +1,4 @@
+
 firebase.auth().onAuthStateChanged((user)=>{
     if(user){
         // if user signed in 
@@ -17,7 +18,7 @@ firebase.auth().onAuthStateChanged((user)=>{
                     el=currentUserFullName.split(" ")
                     avatar=el[0].charAt(0)+el[1].charAt(0)
                     document.getElementById("genrate-avatar").innerHTML=avatar.toUpperCase();
-                } else {console.log("not working")}
+                } 
             })
         })
         .catch(error=>{console.log(error.message)})
@@ -84,7 +85,8 @@ firebase.auth().onAuthStateChanged((user)=>{
                 li.appendChild(litxt),
                 b.appendChild(liTime),
                 li.appendChild(b),
-                ul.appendChild(li)
+                ul.appendChild(li),
+                document.getElementById('loading-screen').style.display="none"
                
                 )})
         })
