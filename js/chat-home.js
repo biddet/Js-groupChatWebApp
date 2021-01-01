@@ -24,6 +24,7 @@ firebase.auth().onAuthStateChanged((user)=>{
         .catch(error=>{console.log(error.message)})
         //getting all messages 
         firebase.firestore().collection('AllMessages').orderBy('timestamp', 'asc').onSnapshot(snapshot=>{
+            document.getElementById('loading-screen').style.display="none";
             let changes=snapshot.docChanges(); 
             changes.forEach(change=>{
                 // decalaring elements
@@ -85,8 +86,8 @@ firebase.auth().onAuthStateChanged((user)=>{
                 li.appendChild(litxt),
                 b.appendChild(liTime),
                 li.appendChild(b),
-                ul.appendChild(li),
-                document.getElementById('loading-screen').style.display="none"
+                ul.appendChild(li)
+                
                
                 )})
         })
