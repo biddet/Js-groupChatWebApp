@@ -116,10 +116,10 @@
 }
                               </style>
                               <ul>
-          <li class="uploads type-image" data-tooltips="Send image" data-type-upload="upload-image">
+          <li class="uploads type-image" data-tooltips="Send image" data-type-upload="upload-image" onclick="sendMessage(event)">
             <i class="fas fa-image"></i>
           </li>
-          <li class="uploads type-file" data-tooltips="Send Documents" data-type-upload="upload-image">
+          <li class="uploads type-file" data-tooltips="Send Documents" data-type-upload="upload-image" onclick="sendMessage(event)">
             <i class="fas fa-file"></i>
           </li>
         </ul>
@@ -172,7 +172,7 @@ function handleFiles(files) {
         </div>
       `);
     }else if(fileType == "application/pdf" || fileType == "application/vnd.openxmlformats-officedocument.wordprocessingml.document" || fileType == "application/docx"  || fileType == "text/plain"){
-      $('.bot-chat-area').append(`
+      $('.chat-box-container').append(`
         <div class="chat-msg new" position="right">
           <span class="msg-avatar">
             <img src="https://lh3.googleusercontent.com/-Z_tTrGMleO4/AAAAAAAAAAI/AAAAAAAAAAA/AGDgw-j9-0wyGAWxTLHKlvV7IzmIe65vKA/s96-c-mo/photo.jpg">
