@@ -75,6 +75,83 @@
                           <div class="form-group">
                               <textarea   type="text" class="form-control" id="user-input"  placeholder="Enter Your Message" cols="2" rows="2"></textarea>
                               <!-- <input type="text" class="form-control" id="user-input"  placeholder="Enter Your Message"> -->
+                              <!--IMAGE-->
+                              <ul>
+          <li class="uploads type-image" data-tooltips="Send image" data-type-upload="upload-image">
+            <i class="fas fa-image"></i>
+          </li>
+          <li class="uploads type-file" data-tooltips="Send Documents" data-type-upload="upload-image">
+            <i class="fas fa-file"></i>
+          </li>
+        </ul>
+        <input type="file" data-type="upload-file" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">
+        <input type="file" data-type="upload-image" multiple onchange="handleFiles(this.files)">
+      </div>
+                            <script>
+                                function humanFileSize(bytes, si) {
+    var thresh = si ? 1000 : 1024;
+    if(Math.abs(bytes) < thresh) {
+        return bytes + ' B';
+    }
+    var units = si
+        ? ['kB','MB','GB','TB','PB','EB','ZB','YB']
+        : ['KiB','MiB','GiB','TiB','PiB','EiB','ZiB','YiB'];
+    var u = -1;
+    do {
+        bytes /= thresh;
+        ++u;
+    } while(Math.abs(bytes) >= thresh && u < units.length - 1);
+    return bytes.toFixed(1)+' '+units[u];
+}
+function handleFiles(files) {
+  if (!files.length) {
+    fileList.innerHTML = "<p>No files selected!</p>";
+  } else {
+    for (var i = 0; i < files.length; i++) {
+    var dateAndTime = moment().format('MMMM Do YYYY, h:mm:ss a');
+    var filePath = window.URL.createObjectURL(files[i]);
+    var fileName = files[i].name;
+    var fileSize = humanFileSize(files[i].size,true);
+    var fileType = files[i].type;
+    console.log(fileType);
+    if(fileType == "image/png" || fileType == "image/jpg" || fileType == "image/jpeg" || fileType == "image/gif"){
+      $('.bot-chat-area').append(`
+        <div class="chat-msg new" position="right">
+          <span class="msg-avatar">
+            <img src="https://lh3.googleusercontent.com/-Z_tTrGMleO4/AAAAAAAAAAI/AAAAAAAAAAA/AGDgw-j9-0wyGAWxTLHKlvV7IzmIe65vKA/s96-c-mo/photo.jpg">
+          </span> 
+          <div class="cm-msg-text">
+            <div class="inside-chat-file">
+              <a href="${filePath}" download><img src="${filePath}"></a>
+            </div>
+            <div class="description-file" clear>
+              <span class="file-name">${fileName}</span>
+              <span class="file-size">${fileSize}</span>
+            </div>
+            <div class="cm-dt">${dateAndTime}</div>
+          </div>
+        </div>
+      `);
+    }else if(fileType == "application/pdf" || fileType == "application/vnd.openxmlformats-officedocument.wordprocessingml.document" || fileType == "application/docx"  || fileType == "text/plain"){
+      $('.bot-chat-area').append(`
+        <div class="chat-msg new" position="right">
+          <span class="msg-avatar">
+            <img src="https://lh3.googleusercontent.com/-Z_tTrGMleO4/AAAAAAAAAAI/AAAAAAAAAAA/AGDgw-j9-0wyGAWxTLHKlvV7IzmIe65vKA/s96-c-mo/photo.jpg">
+          </span> 
+          <div class="cm-msg-text">
+            <div class="inside-chat-file">
+              <a href="${filePath}" download><i class="fas fa-file-alt"></i></a>
+            </div>
+            <div class="description-file" clear>
+              <span class="file-name">${fileName}</span>
+              <span class="file-size">${fileSize}</span>
+            </div>
+            <div class="cm-dt">${dateAndTime}</div>
+          </div>
+        </div>
+      `);
+                            </script>
+                            <!--DONE-->
                               <button type="submit" class="send-btn" onclick="sendMessage(event)"><i class="far fa-paper-plane"></i></button>
                             </div>
                         </form>
