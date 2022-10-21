@@ -119,11 +119,7 @@ firebase.auth().onAuthStateChanged((user)=>{
 
 function deleteItem(e){
   console.log("Button element", e)
-  parent = ref.parent()
-parent.on('child_removed', function (snapshot) {
-    // removed!
-})
-ref.remove()
+ ref.remove();
 }
 
 
