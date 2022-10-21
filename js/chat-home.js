@@ -136,8 +136,6 @@ window.addEventListener("DOMContentLoaded", function(event){
 function deleteItem(e){
   // e is the element object, so you do not need to get .target
   feedRef.remove()
-      .then(function(){
-        console.log("Remove succeeded.")
 }
 
 var logout=(event)=>{
