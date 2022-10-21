@@ -107,6 +107,7 @@ firebase.auth().onAuthStateChanged((user)=>{
                     userMsg,
                     User_name:user_fullname,
                     UserID:user.uid
+                    
                     // timestamp:firebase.firestore.FieldValue.serverTimestamp()
                 })
                 .then(userMsg=>{console.log("Message added!")})
@@ -115,6 +116,12 @@ firebase.auth().onAuthStateChanged((user)=>{
         }
     } else {window.location="signin.html"}
 })
+
+function deleteItem(e){
+  console.log("Button element", e)
+  e.parentElement.remove()
+}
+
 
 var logout=(event)=>{
  event.preventDefault()
