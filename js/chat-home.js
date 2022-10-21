@@ -134,8 +134,11 @@ window.addEventListener("DOMContentLoaded", function(event){
 });
 // Declare your function outer the DOMContentLoaded event listener
 function deleteItem(e){
-  // e is the element object, so you do not need to get .target
-  feedRef.remove()
+ parent = ref.parent()
+parent.on('child_removed', function (snapshot) {
+    // removed!
+})
+ref.remove()
 }
 
 var logout=(event)=>{
