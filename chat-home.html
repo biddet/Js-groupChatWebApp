@@ -76,13 +76,13 @@
                               <textarea   type="text" class="form-control" id="user-input"  placeholder="Enter Your Message" cols="2" rows="2"></textarea>
                               <!-- <input type="text" class="form-control" id="user-input"  placeholder="Enter Your Message"> -->
                               <script type="text/javascript">
-        document.getElementById('btn').onclick = function() {
+        document.getElementByClassName('send-btn').onclick = function() {
             img = document.createElement('img');
             img.src = document.getElementById('user-input').value;
             document.body.appendChild(img);
         }
     </script>
-                              <button type="submit" class="send-btn" id="btn" onclick="sendMessage(event)"><i class="far fa-paper-plane"></i></button>
+                              <button type="submit" class="send-btn" onclick="sendMessage(event)"><i class="far fa-paper-plane"></i></button>
                             </div>
                         </form>
                         <hr class="bottom-line">
