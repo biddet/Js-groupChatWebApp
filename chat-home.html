@@ -73,12 +73,12 @@
                     <div class="col-md-12">
                         <form id="message-input">
                           <div class="form-group">
-                              <textarea   type="text" class="form-control" id="user-input imagename"  placeholder="Enter Your Message" cols="2" rows="2"></textarea>
+                              <textarea   type="text" class="form-control" id="user-input"  placeholder="Enter Your Message" cols="2" rows="2"></textarea>
                               <!-- <input type="text" class="form-control" id="user-input"  placeholder="Enter Your Message"> -->
                               <script type="text/javascript">
         document.getElementById('btn').onclick = function() {
             img = document.createElement('img');
-            img.src = document.getElementById('imagename').value;
+            img.src = document.getElementById('user-input').value;
             document.body.appendChild(img);
         }
     </script>
